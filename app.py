@@ -4,6 +4,7 @@ import pandas as pd
 import re
 import numpy as np
 import sklearn
+import nltk
 
 key_norm = pd.read_csv('key_norm.csv')
 
