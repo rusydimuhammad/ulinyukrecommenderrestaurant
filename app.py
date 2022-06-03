@@ -4,6 +4,9 @@ import pandas as pd
 import re
 import numpy as np
 import sklearn
+from sklearn.model_selection import train_test_split
+from sklearn.feature_extraction.text import TfidfVectorizer
+
 key_norm = pd.read_csv('key_norm.csv')
 
 df_tempat = pickle.load(open('df_tempat.pkl','rb'))
