@@ -3,6 +3,7 @@ import pickle
 import pandas as pd
 import re
 import numpy as np
+import sklearn
 key_norm = pd.read_csv('key_norm.csv')
 
 df_tempat = pickle.load(open('df_tempat.pkl','rb'))
