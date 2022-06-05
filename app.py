@@ -57,14 +57,31 @@ def recommend(words):
   predictItemRating=pd.DataFrame(np.dot(test_v_df.loc[0],Q.T),index=Q.index,columns=['Rating'])
   topRecommendations=pd.DataFrame.sort_values(predictItemRating,['Rating'],ascending=[0])[:5]
   recommended_place = []
+  recommended_rating = []
+  recommended_address = []
   for i in topRecommendations.index:
     recommended_place.append(df_tempat[df_tempat['resto_id']==i]['name'].iloc[0])
-  return recommended_place
+    recommended_rating.append(df_tempat[df_tempat['resto_id'] == i]['overall_rating'].iloc[0])
+    recommended_address.append(df_tempat[df_tempat['resto_id'] == i]['location'].iloc[0])
+  return recommended_place,recommended_rating,recommended_address
 
 st.title('Sistem Rekomendasi Restaurant di Bandung')
 inputan = st.text_area('Kuliner seperti apa yang Anda inginkan?')
 
 if st.button('Rekomendasi'):
-    recommendations = recommend(inputan)
-    for i in recommendations:
-        st.write(i)
+    recommended_place,recommended_rating,recommended_address = recommend(inputan)
+    st.header(recommended_place[0])
+    st.subheader(recommended_rating[0])
+    st.caption(recommended_address[0])
+    st.header(recommended_place[1])
+    st.subheader(recommended_rating[1])
+    st.caption(recommended_address[1])
+    st.header(recommended_place[2])
+    st.subheader(recommended_rating[2])
+    st.caption(recommended_address[2])
+    st.header(recommended_place[3])
+    st.subheader(recommended_rating[3])
+    st.caption(recommended_address[3])
+    st.header(recommended_place[4])
+    st.subheader(recommended_rating[4])
+    st.caption(recommended_address[4])
