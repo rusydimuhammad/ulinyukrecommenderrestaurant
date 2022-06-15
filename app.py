@@ -65,7 +65,7 @@ def recommend(words):
     recommended_address.append(df_tempat[df_tempat['resto_id'] == i]['location'].iloc[0])
   return recommended_place,recommended_rating,recommended_address
 
-st.title('Sistem Rekomendasi Restaurant di Bandung')
+st.title('Sistem Rekomendasi Destinasi Kuliner di Bandung')
 inputan = st.text_area('Kuliner seperti apa yang Anda inginkan?')
 
 if st.button('Rekomendasi'):
